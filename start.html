@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="mobile.css" />
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Start</title>
+		<meta name="description" content="This app allows you to create CSV file for import into HistoryPin.org Website">
+		<meta name="author" content="Amy Sorensen">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+		<link rel="shortcut icon" href="/favicon.ico">
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+		
+	</head>
+
+	<body>
+		<script src="importPhotos.js"></script>
+		<div>
+			<header>
+				<h1>History Locator</h1>
+			</header>
+			<h2>
+				Photo Selector
+			</h2>
+				<p>
+				Select historical photo from your device:
+				</p>
+				<p>
+				<input type="file" accept="image/*" onchange="picChange(event)"/>
+				</p>
+				<p>
+					<canvas id="capturedPhoto" height="200">
+					</canvas>
+				</p>
+				<p>
+					<a href="mapLocate.html">Select Location Using Map</a>
+				</p>
+				<p>
+					<a href="gnssLocate.html">Use Device Location</a>
+				</p>
+			<footer>
+				<p>
+					<input name="Home" type="button" value="Home" onclick="parent.location='index.html'" />
+				</p>
+				<p>
+					&copy; Copyright Amy Sorensen
+				</p>
+			</footer>
+		</div>
+	</body>
+</html>
