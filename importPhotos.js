@@ -1,16 +1,34 @@
 /**
  * @author Amy
  */
+Storage.prototype.setObj = function(key, obj) {
+    return this.setItem(key, JSON.stringify(obj));
+};
+Storage.prototype.getObj = function(key) {
+    return JSON.parse(this.getItem(key));
+};
+
+function isLocalStorageSupported(){
+	if (typeof(Storage)!=="undefined" && window['localStorage' != null]){
+		return true;
+	} else {
+		return false;
+	}
+}
+
 function picChange(evt){
 	//bring selected photo in
 	//get files captured through input
 	var fileInput = evt.target.files;
-	if(fileInput.length>0){
+	
+	//if(fileInput.length>0){
+	
 		//get the file
 		//window url
 		var windowURL = window.URL || window.webkitURL;
 		//picture url
-		var picURL= windowURL.createObjectURL(fileInput[0]);}
+		var picURL= windowURL.createObjectURL(fileInput[0]);	
+//}
 	
 	//get canvas
 	var photoCanvas = document.getElementById('capturedPhoto');
@@ -25,4 +43,5 @@ function picChange(evt){
 	};
 	//load photo into canvas
 	photo.src=picURL;
+	
 }

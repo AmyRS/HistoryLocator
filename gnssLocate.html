@@ -20,7 +20,7 @@
 	</head>
 
 	<body>
-		<script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+		    
 		<div>
 			<header>
 				<h1>GPS Locate</h1>
@@ -30,30 +30,35 @@
 					</p>
 					<div id="map">
 					</div>
-			<footer>
-				<p>
-					<input name="Home" type="button" value="Home" onclick="parent.location='index.html'" />
-				</p>
-				<p>
-					&copy; Copyright Amy Sorensen
-				</p>
-			</footer>
-		</div>
-		<script type="text/javascript">
+					<p><a href="start.html">Locate Another Photo</a></p>
+					<p><a href="ExportCSV.html">Done Adding Photos. Export CSV File</a></p>
+			
+			<script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+			<script type="text/javascript">
+		
 			var x = document.getElementById("gnss");
+			
 			function getLocation() {
     			if (navigator.geolocation) {
    	    		 navigator.geolocation.getCurrentPosition(showPosition);
-   	 		} else {
+   	 		 } else {
     	  		  x.innerHTML = "Geolocation is not supported by this browser.";
    			 }
+   			 
 			function showPosition(position)
  			 {
  			 var xLat = position.coords.latitude;
  			 var yLong = position.coords.longitude;
- 			 x.innerHTML="Name: " + "<br>Latitude: " + xLat + "<br>Longitude: " + yLong;  
- 		
+ 			 x.innerHTML= "Latitude: " + xLat + "<br>Longitude: " + yLong;
+ 			 
+ 			 //Local Storage add X & Y to the name and store
+ 			 var XdataToStore = JSON.stringify(xLat);
+ 			 var YdataToStore = JSON.stringify(yLong);
+ 			 var localNameData = JSON.parse(localStorage.getItem('nameData'));
+  			 var dataToStore = localNameData+", "+XdataToStore+", "+YdataToStore+"\r";
+  			 localStorage.setItem('oneFile', dataToStore); 
   			}
+  			
   			  			
   			//Map
 			var map = L.map('map');
@@ -87,6 +92,17 @@
 		map.on('click', onMapClick);
 
  			 }
+ 		//var localData = JSON.parse(localStorage.getItem('oneFile'));
+ 		//window.alert(localData);
 		</script>
+			<footer>
+				<p>
+					<input name="Home" type="button" value="Home" onclick="parent.location='index.html'" />
+				</p>
+				<p>
+					&copy; Copyright Amy Sorensen
+				</p>
+			</footer>
+		</div>
 	</body>
 </html>
