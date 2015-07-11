@@ -87,3 +87,26 @@ input[type="button"]:active {
 	position:relative;
 	top:1px;
 }
+
+#map{
+	height:300px;
+}
+
+.custom-popup .leaflet-popup-content-wrapper {
+  background:#ffffff;
+  color:#000000;
+  font-size:16px;
+  line-height:24px;
+  }
+.custom-popup .leaflet-popup-content-wrapper a {
+  color:rgba(255,255,255,0.5);
+  }
+.custom-popup .leaflet-popup-tip-container {
+  width:30px;
+  height:15px;
+  }
+.custom-popup .leaflet-popup-tip {
+  border-left:15px solid transparent;
+  border-right:15px solid transparent;
+  border-top:15px solid #2c3e50;
+  }

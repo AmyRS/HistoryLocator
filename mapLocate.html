@@ -17,18 +17,71 @@
 		<link rel="shortcut icon" href="/favicon.ico">
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 		
+		<link rel="stylesheet" type="text/css" href="leaflet-search.css"/>
+		<link rel="stylesheet" type="text/css"	href="leaflet-search.mobile.css"/>
 	</head>
 
-	<body>
-		<script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
-		<script type="text/javascript">
-		</script>
+	<body onload="mapUSAzoom()">
+	
 		<div>
 			<header>
 				<h1>Map Locate</h1>
 			</header>
 					<div id="map">
 					</div>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?v=3&amp;sensor=false"></script>
+		<script src="leaflet-search.js"></script>
+		<script type="text/javascript">
+					 
+		 var map = new L.map('map');
+		 map.locate({setView: true, maxZoom: 10});
+		 		
+		 function mapUSAzoom(){
+				L.tileLayer('http://api.tiles.mapbox.com/v4/arsgis.d4a94564/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiYXJzZ2lzIiwiYSI6IjdmMThhNjU0OWRiYjJkNjBjYTljODk0MDI1NDM1OWViIn0.10Ig1Gc_8WjzqzdtMfWsGA', {
+    			attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+    			maxZoom: 19,
+				}).addTo(map);
+				 function getLocation() {
+				//test for GPSS capability
+    			if (navigator.geolocation) {
+   	    		 navigator.geolocation.getCurrentPosition(showPosition);
+   	 		 	} else {
+    	  		  x.innerHTML = "Geolocation is not supported by this browser.";
+   			 	}
+   			 	var xLat = position.coords.latitude;
+ 				var yLong = position.coords.longitude;
+   			    }
+   			    
+   			    var geocoder = new google.maps.Geocoder();
+   			    
+   			    function googleGeocoding(text, callResponse){
+					geocoder.geocode({address: text}, callResponse);}
+
+				function filterJSONCall(rawjson){
+					var json = {},
+					key, loc, disp = [];
+
+					for(var i in rawjson){
+					key = rawjson[i].formatted_address;
+			
+					loc = L.latLng( rawjson[i].geometry.location.lat(), rawjson[i].geometry.location.lng() );
+			
+					json[ key ]= loc;}	//key,value format
+					return json;
+					}
+				map.addControl( new L.Control.Search({
+			callData: googleGeocoding,
+			filterJSON: filterJSONCall,
+			markerLocation: true,
+			autoType: false,
+			autoCollapse: true,
+			minLength: 2,
+			zoom: 10
+		}) );
+				}
+				
+		</script>
 			<footer>
 				<p>
 					<input name="Home" type="button" value="Home" onclick="parent.location='index.html'" />

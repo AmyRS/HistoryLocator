@@ -30,6 +30,12 @@
        	 	a.href = url;
         	a.download = "ImportHistoryXY.csv";
         }
+        	function clearStorage(){
+        		localStorage.clear();
+			  
+			}
+    
+        
         </script>
 		<div>
 			<header>
@@ -37,9 +43,13 @@
 			</header>
 			 <!--<button onclick="exportData()">Generate CSV</button><br> -->
    			 <a id="results">Download CSV</a>
+   			 <p>
+   			 <button onclick="clearStorage()">Clear Data Stored</button>
+   			 </p>
+   			 <p>Only clear the data if you've downloaded a CSV. Once cleared you can not get the data back</p>
 			<footer>
 				<p>
-					<input name="login" type="button" value="Get Started" onclick="parent.location='start.html'"  />
+					<input name="login" type="button" value="Add More Photos" onclick="parent.location='start.html'"  />
 				</p>
 				<p>
 					<a href="about.html">About</a>
