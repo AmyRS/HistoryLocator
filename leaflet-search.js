@@ -23,7 +23,7 @@ L.Control.Search = L.Control.extend({
 		//TODO implement can do research on multiple sources
 		propertyName: 'title',		//property in marker.options(or feature.properties for vector layer) trough filter elements in layer,
 		propertyLoc: 'loc',			//field for remapping location, using array: ['latname','lonname'] for select double fields(ex. ['lat','lon'] )
-									// support dotted format: 'prop.subprop.title'
+					
 		callTip: null,				//function that return row tip html node(or html string), receive text tooltip in first param
 		filterJSON: null,			//callback for filtering data to _recordsCache
 		minLength: 1,				//minimal text length for autocomplete
@@ -45,8 +45,8 @@ L.Control.Search = L.Control.extend({
 		animateLocation: true,		//animate a circle over location found
 		circleLocation: true,		//draw a circle in location found
 		markerLocation: false,		//draw a marker in location found
-		markerIcon: new L.Icon.Default()//custom icon for maker location
-	},
+		markerIcon: new L.Icon.Default(),	//custom icon for marker location	  
+		},
 //FIXME option condition problem {autoCollapse: true, markerLocation: true} not show location
 //FIXME option condition problem {autoCollapse: false }
 //

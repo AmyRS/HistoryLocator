@@ -61,12 +61,12 @@
  				var yLong = position.coords.longitude;
  			 	x.innerHTML= "Latitude: " + xLat + "<br>Longitude: " + yLong;
  			 
- 			 //Local Storage add X & Y to the name and store
+ 			    //Local Storage add X & Y to the name and store
  			 	var XdataToStore = JSON.stringify(xLat);
  			 	var YdataToStore = JSON.stringify(yLong);
  			 	var localNameData = JSON.parse(localStorage.getItem('nameData'));
   			 	var dataToStore = localNameData+", "+XdataToStore+", "+YdataToStore+"\n";
-  			 	
+  			 	//test oneFile for previous data, add new data to
 				if (localStorage.getItem('oneFile')===null){
   			 		localStorage.setItem('oneFile', dataToStore);
   				}else{
