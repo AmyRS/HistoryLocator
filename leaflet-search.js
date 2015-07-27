@@ -42,7 +42,7 @@ L.Control.Search = L.Control.extend({
 		textCancel: 'Cancel',		//title in cancel button
 		textErr: 'Location not found',	//error message
 		position: 'topleft',
-		animateLocation: true,		//animate a circle over location found
+		animateLocation: false,		//animate a circle over location found
 		circleLocation: true,		//draw a circle in location found
 		markerLocation: false,		//draw a marker in location found
 		markerIcon: new L.Icon.Default(),	//custom icon for marker location	  
@@ -88,7 +88,9 @@ L.Control.Search = L.Control.extend({
 			this._markerLoc = new SearchMarker([0,0], {
 					showCircle: this.options.circleLocation,
 					showMarker: this.options.markerLocation,
-					icon: this.options.markerIcon
+					icon: this.options.markerIcon,
+					//Make Marker Draggable
+					draggable: true
 				});//see below
 		
 		this.setLayer( this._layer );

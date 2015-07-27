@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<link rel="stylesheet" type="text/css" href="mobile.css" />
-		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+		<!--<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />-->
 		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
 		Remove this if you use the .htaccess -->
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -28,37 +28,89 @@
 		
 		<div id="map">
 		</div>
-		
+		<!--<pre id='output' class='ui-output'></pre>-->
 		<p><a href="start.html">Locate Another Photo</a></p>
 		<p><a href="ExportCSV.html">Done Adding Photos. Export CSV File</a></p>
+		
 		<p><button onclick="storeLocation()">Store Location</button></p>
+		
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?v=3&amp;sensor=false"></script>
 		<script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
-		<link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.css' rel='stylesheet' />
-		<script src="leaflet-search.js"></script>
-		<script src="StoreLocationLS.js"></script>
-		<script type="text/javascript">
-		 L.mapbox.accessToken = 'pk.eyJ1IjoiYXJzZ2lzIiwiYSI6IjdmMThhNjU0OWRiYjJkNjBjYTljODk0MDI1NDM1OWViIn0.10Ig1Gc_8WjzqzdtMfWsGA';
-		 			 
-		 var map = new L.mapbox.map('map', 'mapbox.streets')
-	     //map.locate({setView: true, maxZoom: 10});
-		 .setView([37.9, -77],4);	
-		 		
-		 var marker = L.marker(new L.LatLng(37.9, -77), {
-    	  icon: L.mapbox.marker.icon({
-          'marker-color': 'ff8888'
-   	     }),
-   	      draggable: true
-	     });
-
-         marker.bindPopup('This marker is draggable! Move it around.');
-         marker.addTo(map);
-         
-         onTouchEvent();
-         
-         onClickEvent();
+		<!--<script src="https://maps.googleapis.com/maps/api/js?v=3&amp;sensor=false"></script>-->
 		
+		<link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.css' rel='stylesheet' />
+		
+		
+		<script src="leaflet-search.js"></script>
+		<!--<script src="StoreLocationLS.js"></script>-->
+		<script type="text/javascript">
+		
+		 L.mapbox.accessToken = 'pk.eyJ1IjoiYXJzZ2lzIiwiYSI6IjdmMThhNjU0OWRiYjJkNjBjYTljODk0MDI1NDM1OWViIn0.10Ig1Gc_8WjzqzdtMfWsGA';
+		 var geolocate = document.getElementById('geolocate');		 
+		 var map = new L.mapbox.map('map', 'mapbox.streets');
+		 var myLayer = L.mapbox.featureLayer().addTo(map);
+		 var output = document.getElementById('output');
+
+		 var geocoder = new google.maps.Geocoder();
+   			 
+   		 function googleGeocoding(text, callResponse){
+			geocoder.geocode({address: text}, callResponse);}
+
+			function filterJSONCall(rawjson){
+				var json = {},
+				key, loc, disp = [];
+
+				for(var i in rawjson){
+				key = rawjson[i].formatted_address;
+				loc = L.latLng( rawjson[i].geometry.location.lat(), rawjson[i].geometry.location.lng() );
+				json[ key ]= loc;}	//key,value format
+				return json;
+				}
+					
+				map.addControl( new L.Control.Search({
+			    callData: googleGeocoding,
+			    filterJSON: filterJSONCall,
+			    markerLocation: false, 
+			    autoType: false,
+			    autoCollapse: true,
+			    minLength: 2,
+			    zoom: 10
+		    	})
+		    	);
+						
+			function onMapClick(e) {
+    				 m = new L.marker(e.latlng,
+    				{draggable:true})
+    				.addTo(map);
+    				result = m.getLatLng();
+    				console.log(result);
+    				
+    				m.on('dragend', function(event) {
+    				var m = event.target;  // you could also simply access the marker through the closure
+    				result = m.getLatLng();  // but using the passed event is cleaner
+    				console.log(result);
+					});
+				;}
+			map.once('click', onMapClick);
+			
+		function storeLocation(){
+ 			mx = m.getLatLng();	 	    
+ 			var XdataToStore = JSON.stringify(mx.lat);
+ 			var YdataToStore = JSON.stringify(mx.lng);
+ 			 	    
+ 			var localNameData = JSON.parse(localStorage.getItem('nameData'));
+  			var dataToStore = localNameData+", "+XdataToStore+", "+YdataToStore+"\n";				
+		
+			//test oneFile for previous data, add new data to
+			if (localStorage.getItem('oneFile')===null){
+  				localStorage.setItem('oneFile', dataToStore);
+  				}else{
+  				var keepData = localStorage.getItem('oneFile');
+  				localStorage.setItem('oneFile',keepData+dataToStore);
+  				}	};	
+			
+				
 		</script>
 			<footer>
 				<p>
