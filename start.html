@@ -21,13 +21,11 @@
 		<script src="importPhotos.js"></script>
 		<div>
 			<header>
-				<h1>History Locator</h1>
+				<h1>Select Photo to Locate</h1>
 			</header>
-			<h2>
-				Photo Selector
-			</h2>
+			
 				<p>
-				Select historical photo from your device:
+				Browse to historical photo from your device.
 				</p>
 				<p>
 				<!--<input type="file" id="picFile" accept="image/*" onchange="picChange(event)"/> -->
@@ -63,16 +61,17 @@
 					<a href="mapLocate.html">Select Location Using Map</a>
 				</p>
 				<p>
-					<a href="gnssLocate.html">Use Device Location</a>
+					<a href="gnssLocate.html">Use Current Position</a>
 				</p>
+				
+				
+			
 			<footer>
-				<p>
-					<input name="Home" type="button" value="Home" onclick="parent.location='index.html'" />
-				</p>
-				<p>
-					&copy; Copyright Amy Sorensen
-				</p>
+				<p><a id="HOME" href="index.html">Home</a></p>
+				<p id="copy">&copy; Copyright Amy Sorensen</p>
+				<p><a id="aboutApp" href="about.html">About</a></p>
 			</footer>
+			
 		</div>
 	</body>
 </html>

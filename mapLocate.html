@@ -32,23 +32,20 @@
 		<p><a href="start.html">Locate Another Photo</a></p>
 		<p><a href="ExportCSV.html">Done Adding Photos. Export CSV File</a></p>
 		
-		<p><button onclick="storeLocation()">Store Location</button></p>
+		<p><button id="storeData" onclick="storeLocation()">Store Location</button></p>
 		
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?v=3&amp;sensor=false"></script>
 		<script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
-		<!--<script src="https://maps.googleapis.com/maps/api/js?v=3&amp;sensor=false"></script>-->
-		
 		<link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.css' rel='stylesheet' />
 		
-		
 		<script src="leaflet-search.js"></script>
-		<!--<script src="StoreLocationLS.js"></script>-->
 		<script type="text/javascript">
 		
 		 L.mapbox.accessToken = 'pk.eyJ1IjoiYXJzZ2lzIiwiYSI6IjdmMThhNjU0OWRiYjJkNjBjYTljODk0MDI1NDM1OWViIn0.10Ig1Gc_8WjzqzdtMfWsGA';
 		 var geolocate = document.getElementById('geolocate');		 
 		 var map = new L.mapbox.map('map', 'mapbox.streets');
+		 
 		 var myLayer = L.mapbox.featureLayer().addTo(map);
 		 var output = document.getElementById('output');
 
@@ -108,18 +105,21 @@
   				}else{
   				var keepData = localStorage.getItem('oneFile');
   				localStorage.setItem('oneFile',keepData+dataToStore);
-  				}	};	
+  				}	
+  				document.getElementById("storeData").disabled = true;
+  				};	
 			
 				
 		</script>
+		
+		
+		
 			<footer>
-				<p>
-					<input name="Home" type="button" value="Home" onclick="parent.location='index.html'" />
-				</p>
-				<p>
-					&copy; Copyright Amy Sorensen
-				</p>
+				<p><a id="HOME" href="index.html">Home</a></p>
+				<p id="copy">&copy; Copyright Amy Sorensen</p>
+				<p><a id="aboutApp" href="about.html">About</a></p>
 			</footer>
+			
 		</div>
 	</body>
 </html>
