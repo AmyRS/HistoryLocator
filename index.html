@@ -16,16 +16,22 @@
 		<link rel="shortcut icon" href="/favicon.ico">
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 		
+		
 	</head>
 
 	<body id="FrontPage">
+		<script src="newCSV.js"></script>
 		<div>
 			<header>
 				<h1 id="MAIN">History Locator</h1>
 			</header>
 			<section>This app will allow you to quickly and easily generate a file that can be used to upload multiple files to the HistoryPin.org website.</section>
-			<p><h1><a id="LetsDoThis" href="start.html">Lets Do This!!!</a></h1></p>
 			
+			<!--add delete function here-->
+			<p><h3><a href="start.html" onclick="return runNewCSV()">Create <em>new</em> CSV File</a></h3></p>
+			
+			<!--Have this button grayed out if there is nothing in oneFile localStorage-->
+			<p><h5><a href="start.html">Continue CSV File</a></h5></p>
 			
 			<footer>				
 				<p id="copy">&copy; Copyright Amy Sorensen</p>

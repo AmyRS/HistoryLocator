@@ -42,7 +42,7 @@
 			
 			<script type="text/javascript">
 			L.mapbox.accessToken = 'pk.eyJ1IjoiYXJzZ2lzIiwiYSI6IjdmMThhNjU0OWRiYjJkNjBjYTljODk0MDI1NDM1OWViIn0.10Ig1Gc_8WjzqzdtMfWsGA';
-			var map = new L.mapbox.map('map', 'mapbox.streets');
+			 var map = new L.mapbox.map('map', 'mapbox.high-contrast').setView([40,-97], 3)
 		 
 		 	var myLayer = L.mapbox.featureLayer().addTo(map);
 			
@@ -55,7 +55,7 @@
    			 function showPosition(position){
  				xLat = position.coords.latitude;
  				yLong = position.coords.longitude;
- 			 	x.innerHTML= "Latitude: " + xLat + "<br>Longitude: " + yLong;
+ 			 	//x.innerHTML= "Latitude: " + xLat + "<br>Longitude: " + yLong;
  			 
  			    
  			   	
