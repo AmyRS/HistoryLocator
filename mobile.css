@@ -1,97 +1,116 @@
+.wrap {
+    position: relative;
+    border: 1px solid #FFFFFF;
+}
 body {
  font-family: Geneva, serif;
  font-size: 16px;
- color:#444444;
- height:80%;
  background-color:#FFE6E6;
- 
+ margin:0;
 }
-
-#FrontPage{
-	background: url(images/Background00.jpg) no-repeat center center fixed;
+h1{
+	text-align:center;
+}
+#FrontPage, body{
+ background: url(images/Background00.jpg) no-repeat center center fixed;
  -webkit-background-size: cover;
  -moz-background-size: cover;
  -o-background-size: cover;
  background-size: cover;
 }
-
-
-
-footer {
-	text-align:center;
-	position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    padding: 1rem;
-    text-align: center;
-}
-
-section{
-	padding: 15px;
-	
-}
-
-h1{
-	text-align: center;
-}
-
-a{
-	color: #4D4949;
-	text-emphasis: strong;
-}
-
-#map{
-	width: 100%;
-	height: 55vh;
-	
-}
-
 #MAIN{
 	color:#EB337D;
 	text-shadow: .5px 1px 1px #808080;
 	width: 100%;
 }
-
-#LetsDoThis{
-	font-size: 20px;
-	text-align:center;
-}
-
-#Continue{
-	text-align:center;
-}
-
-
-#HOME{
-	font-size: 16px;
-	text-shadow: .5px .5px .5px #808080;
+#HOME {
+	font-size: 18px;
 	color:#EB337D;
-	text-decoration: none;
-	font-weight: bold;
-	border: 1px solid #737373;
-	border-radius: 3em;
-	background-color:#CCCCCC;
-	padding: 5px;
-	float: left;
-	margin: 20px;
-	}
-
+    float: left;
+    padding:10px;
+    width:50%;
+    text-decoration:none;
+    height:30px;
+    background-color:#FFFFFF
+}
 #aboutApp{
-	text-decoration:none;
-	border: 1px solid #737373;
-	border-radius: 3em;
-	background-color:#CCCCCC;
-	padding: 5px;
-	float: right;
-	margin: 20px;
+	font-size: 18px;
+	float: left;
+    padding:10px;
+    width:50%;
+    text-decoration:none;
+    height:30px;
+    background-color:#FFFFFF;
+}
+#copy {
+    position: absolute;
+    padding:10px;
+    top: 0;
+    right: 0;
+    background-color: #888;
+    width:50%;
 }
 
-#copy{
-	position: relative #footer;
-	position: absolute;
-	bottom: 0;
-	height: 10px;
-	padding 0px;
+#map{
+	width: 100%;
+	height: 65vh;	
 }
-
+footer{
+	position:absolute;
+	bottom:0;
+	width:100%;
+}
+#storeData{
+  margin      : 0;
+  padding     : 0;
+  border      : 0;
+  background  : transparent;
+  font-family : inherit;
+  cursor      : pointer;
+}
+#storeData::-moz-focus-inner{
+  padding : 0;
+  border  : 0;
+}
+.wrapper{
+	width:100%;
+	height:20%;
+}
+.firstThree {
+  float:left;
+  width:33%;
+  background:#7C7A80;
+  padding-top:10%;
+  text-decoration:none;
+}
+.secondThree {
+  float:left;
+  width:34%;
+  background:#CCCCCC;
+  text-decoration:none;
+  padding-top:10%;
+}
+.thirdThree {
+  float:left;
+  width:33%;
+  background:#AAAAAA ;
+  text-decoration:none;
+  padding-top:10%;
+}
+.firstThree, .secondThree, .thirdThree{
+	font-size:20px;
+}
+#results{
+	position:relative;
+	top:50px;
+	color:#000000 ;
+	text-shadow: .5px 1px 1px #808080;
+	border-style:solid;
+	border-color:#444444;
+	border-width:1px;
+	width: 100%;
+	font-size:24px;
+	padding:25px;
+    background-color:#AAAAAA ;
+    text-decoration:none;
+}

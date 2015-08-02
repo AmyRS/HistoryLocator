@@ -21,19 +21,27 @@
 		<link rel="stylesheet" type="text/css"	href="leaflet-search.mobile.css"/>
 	</head>
 
-	<body>
-	
+	<body>   
 		<div>
-		<header><h1>Map Locate</h1></header>
+			<header>	
+			</header>
+				<div class= "wrapper">	
+					<button class="firstThree" id="storeData" onclick="storeLocation()">Set Location</button>
+					<a class="secondThree" href="start.html">Add Photo</a>
+					<a class="thirdThree" href="ExportCSV.html">Export CSV</a>
+					</div>
+				<div class="custom-popup" id="map">
+					</div>			
 		
-		<div id="map">
+			<footer>
+				<div class="wrap">
+				<p><a id="HOME" href="index.html">History Locator</a></p>
+				<p id="copy">&copy; Copyright Amy Sorensen</p>
+				<!--<p><a id="aboutApp" href="about.html">About</a></p>-->
+				</div>
+			</footer>
+			
 		</div>
-		<!--<pre id='output' class='ui-output'></pre>-->
-		<p><a href="start.html">Locate Another Photo</a></p>
-		<p><a href="ExportCSV.html">Done Adding Photos. Export CSV File</a></p>
-		
-		<p><button id="storeData" onclick="storeLocation()">Store Location</button></p>
-		
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?v=3&amp;sensor=false"></script>
 		<script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
@@ -84,7 +92,7 @@
     				console.log(result);
     				
     				m.on('dragend', function(event) {
-    				var m = event.target;  // you could also simply access the marker through the closure
+    				m = event.target;  // you could also simply access the marker through the closure
     				result = m.getLatLng();  // but using the passed event is cleaner
     				console.log(result);
 					});
@@ -96,30 +104,29 @@
  			var XdataToStore = JSON.stringify(mx.lat);
  			var YdataToStore = JSON.stringify(mx.lng);
  			 	    
- 			var localNameData = JSON.parse(localStorage.getItem('nameData'));
-  			var dataToStore = localNameData+", "+XdataToStore+", "+YdataToStore+"\n";				
+ 			//var localNameData = JSON.parse(localStorage.getItem('nameData'));
+  			//var dataToStore = name+","+fileName+""+XdataToStore+", "+YdataToStore+"\n";	
+  			//var headerData = 'File name*,Photo title (max 50 characters)*,Keywords (max 500 characters),Date (See instructions for format),"\ Interval (Years | 1, 2, 3, 5, 10, 15)\","\ Latitude , Longitude\",Story ,Use Date (TRUE or FALSE),Date Range? (Y or N),Licence (See instructions for options),Copyright holder,Author,Original Link  ,Repository or Archive ,Notes';
+			//var headerData = headerData + '\n';
+	
+  			var g = localStorage.getItem('title');
+
+  			var n = localStorage.getItem('fileName');
+  						
+			var dataToStore = n + "," + g +",,,," + '"' + XdataToStore  +","+YdataToStore + '"'+ "\n";
+			//var dataToStore = dataToStore + '\n';
 		
 			//test oneFile for previous data, add new data to
 			if (localStorage.getItem('oneFile')===null){
   				localStorage.setItem('oneFile', dataToStore);
-  				}else{
+  				}
+  				else{
   				var keepData = localStorage.getItem('oneFile');
-  				localStorage.setItem('oneFile',keepData+dataToStore);
+  				localStorage.setItem('oneFile',keepData + dataToStore);
   				}	
   				document.getElementById("storeData").disabled = true;
   				};	
-			
-				
+	
 		</script>
-		
-		
-		
-			<footer>
-				<p><a id="HOME" href="index.html">Home</a></p>
-				<p id="copy">&copy; Copyright Amy Sorensen</p>
-				<p><a id="aboutApp" href="about.html">About</a></p>
-			</footer>
-			
-		</div>
 	</body>
 </html>

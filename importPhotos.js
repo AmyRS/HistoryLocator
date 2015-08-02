@@ -50,8 +50,17 @@ function picChange(evt){
     	var output = [];
    			for (var i = 0, f; f = files[i]; i++) {
      			output.push("<br>"+ f.name);
-     			var dataToStore = JSON.stringify(f.name);
-     			localStorage.setItem('nameData',dataToStore);
+     			//add spacing for final CSV template
+     			var fileName = JSON.stringify(f.name);
+     			fileName = fileName.substring(0, fileName.length-1);
+     			fileName = fileName.substring(1);
+     
+     			var titleName = JSON.stringify(f.name);
+     			titleName = titleName.substring(0, titleName.length-5);
+     			titleName = titleName.substring(1);
+     
+     			localStorage.setItem('fileName',fileName);
+     			localStorage.setItem('title', titleName);
    				}
    					 
    		document.getElementById('list').innerHTML = output.join('');

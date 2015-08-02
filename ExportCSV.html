@@ -21,7 +21,6 @@
 	<body onload="exportData()">
 		<script>		
     		function exportData() {
-       	 	var item = window.localStorage.csv=",what you want in the CSV,";
 
         	var ary = window.localStorage.getItem( "oneFile" ); //csv as a string
         	var blob = new Blob([ary], {type: "text/csv"});
@@ -30,30 +29,19 @@
        	 	a.href = url;
         	a.download = "ImportHistoryXY.csv";
         }
-        	
-    
-        
+        	 
         </script>
 		<div>
 			<header>
-				<h1>History Locator</h1>
 			</header>
 			 <!--<button onclick="exportData()">Generate CSV</button><br> -->
-   			 <a id="results">Download CSV</a>
-   			 <p>
-   			 <button onclick="clearStorage()">Clear Data Stored</button>
-   			 </p>
-   			 <p>Only clear the data if you've downloaded a CSV. Once cleared you can not get the data back</p>
+   			 <p><h1><a  id="results">Download CSV</a></h1></p>
+   
 			<footer>
-				<p>
-					<a id="HOME" href="index.html">Home</a>
-				</p>
-				<p>
-					<a href="about.html">About</a>
-				</p>
-				<p>
-					&copy; Copyright Amy Sorensen
-				</p>
+				<div class="wrap">
+				<p><a id="HOME" href="index.html">History Locator</a></p>
+				<p id="copy">&copy; Copyright Amy Sorensen</p>
+				</div>
 			</footer>
 		</div>
 	</body>
