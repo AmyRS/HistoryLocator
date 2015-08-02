@@ -1,12 +1,18 @@
 .wrap {
     position: relative;
-    border: 1px solid #FFFFFF;
+    border: 1px solid transparent;
+}
+.wrapper{
+	width:100%;
+	height:20%;
+	display:inline-block;
 }
 body {
  font-family: Geneva, serif;
- font-size: 16px;
+ font-size: 20px;
  background-color:#FFE6E6;
- margin:0;
+ text-align:center;
+ margin:0 0 100px;
 }
 h1{
 	text-align:center;
@@ -23,23 +29,33 @@ h1{
 	text-shadow: .5px 1px 1px #808080;
 	width: 100%;
 }
+#aboutPage{
+	overflow:auto;
+	padding:8px;
+	width:90%;
+	height:80vh;
+}
 #HOME {
-	font-size: 18px;
+	font-size: 20px;
 	color:#EB337D;
     float: left;
-    padding:10px;
+    padding:0px;
     width:50%;
     text-decoration:none;
-    height:30px;
+    height:100px;
     background-color:#FFFFFF
 }
+#HOME:hover{
+	border: 2px solid #444444 ;
+    background-color: #444444;
+}
 #aboutApp{
-	font-size: 18px;
+	font-size: 20px;
 	float: left;
     padding:10px;
     width:50%;
     text-decoration:none;
-    height:30px;
+    height:100px;
     background-color:#FFFFFF;
 }
 #copy {
@@ -49,53 +65,49 @@ h1{
     right: 0;
     background-color: #888;
     width:50%;
+    height:100px;
 }
-
+html{
+	position:relative;
+	min-height:100%;
+}
 #map{
 	width: 100%;
-	height: 65vh;	
+	height: 80vh;	
 }
 footer{
 	position:absolute;
+	left:0;
 	bottom:0;
 	width:100%;
+	height:120px;
 }
-#storeData{
-  margin      : 0;
-  padding     : 0;
-  border      : 0;
-  background  : transparent;
-  font-family : inherit;
-  cursor      : pointer;
-}
-#storeData::-moz-focus-inner{
-  padding : 0;
-  border  : 0;
-}
-.wrapper{
-	width:100%;
-	height:20%;
-}
+
 .firstThree {
   float:left;
   width:33%;
-  background:#7C7A80;
-  padding-top:10%;
+  padding-top:0px;
   text-decoration:none;
+  height:54px;
+  border: transparent solid 2px;
 }
 .secondThree {
   float:left;
-  width:34%;
+  width:32%;
   background:#CCCCCC;
   text-decoration:none;
-  padding-top:10%;
+  padding-top:0px;
+  height:50px;
+  border: transparent solid 2px;
 }
 .thirdThree {
   float:left;
   width:33%;
   background:#AAAAAA ;
   text-decoration:none;
-  padding-top:10%;
+  padding-top:0px;
+  height:50px;
+  border: transparent solid 2px;
 }
 .firstThree, .secondThree, .thirdThree{
 	font-size:20px;
@@ -110,7 +122,16 @@ footer{
 	border-width:1px;
 	width: 100%;
 	font-size:24px;
-	padding:25px;
-    background-color:#AAAAAA ;
+	padding:20px;
+    background-image: linear-gradient(silver, #f5f6f6);
     text-decoration:none;
+    border-radius: 40px;
+    
+}
+#control:hover,#control0:hover, #storeData:hover{
+    border: 2px solid #EF5C97;
+    background-color: #EF5C97;
+}
+#results:hover{
+	background-image: linear-gradient(#EB337D, #FFFFFF);
 }

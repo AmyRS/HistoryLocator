@@ -2,43 +2,32 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<link rel="stylesheet" type="text/css" href="mobile.css" />
-		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
-		Remove this if you use the .htaccess -->
+		<link rel="stylesheet" type="text/css" href="responsive.css" />
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame Remove this if you use the .htaccess -->
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
-		<title>History Locator</title>
 		<meta name="description" content="This app allows you to create CSV file for import into HistoryPin.org Website">
 		<meta name="author" content="Amy Sorensen">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico">
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-		
-		
+		<title>History Locator</title>
 	</head>
 
 	<body id="FrontPage">
 		<script src="newCSV.js"></script>
 		<div>
-			<header>
-				<h1 id="MAIN">History Locator</h1>
-			</header>
-			<section>This app will allow you to quickly and easily generate a file that can be used to upload multiple files to the HistoryPin.org website.</section>
+			<header><h1 id="MAIN">History Locator</h1></header>
+			<section>This app will allow you to quickly and easily generate a CSV file that can be used with the bulk uploader for the HistoryPin.org website.</section>
+			<p><h3><a id="LetsDoThis" href="start.html" onclick="return runNewCSV()">Create <em>new</em> CSV File</a></h3></p>
+			<p><h5><a id="Continue" href="start.html">Continue CSV File</a></h5></p>
 			
-			<!--add delete function here-->
-			<p><h3><a href="start.html" onclick="return runNewCSV()">Create <em>new</em> CSV File</a></h3></p>
-			
-			<!--Have this button grayed out if there is nothing in oneFile localStorage-->
-			<p><h5><a href="start.html">Continue CSV File</a></h5></p>
-			
-			<footer>	
-				<div class="wrap">			
-				<p id="copy">&copy; Copyright Amy Sorensen</p>
-				<p><a id="aboutApp" href="about.html">About</a></p>
-				</div>
-			</footer>
+		<footer>	
+			<div class="wrap">			
+			<p id="copy">&copy; Copyright Amy Sorensen</p>
+			<p><a id="aboutApp" href="about.html">About</a></p>
+			</div>
+		</footer>
 			
 		</div>
 	</body>

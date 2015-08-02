@@ -2,17 +2,13 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<link rel="stylesheet" type="text/css" href="mobile.css" />
+		<link rel="stylesheet" type="text/css" href="responsive.css" />
 		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
-		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
-		Remove this if you use the .htaccess -->
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame Remove this if you use the .htaccess -->
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
-		<title>History Locator</title>
 		<meta name="description" content="This app allows you to create CSV file for import into HistoryPin.org Website">
 		<meta name="author" content="Amy Sorensen">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico">
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -20,74 +16,25 @@
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?v=3&amp;sensor=false"></script>
 		<script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
-		<link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.css' rel='stylesheet' />
+		<link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.css' rel='stylesheet'/>
+		<title>History Locator</title>
 	</head>
 
 	<body>   
-		<div>
+		<div>  
 			<header>	
 			</header>
 				<div class= "wrapper">	
 					<button class="firstThree" id="storeData" onclick="storeLocation()">Set Location</button>
-					<a class="secondThree" href="start.html">Add Photo</a>
-					<a class="thirdThree" href="ExportCSV.html">Export CSV</a>
-					</div>
-				<div class="custom-popup" id="map">
-					</div>	
-			
-			
-			<script type="text/javascript">
-			L.mapbox.accessToken = 'pk.eyJ1IjoiYXJzZ2lzIiwiYSI6IjdmMThhNjU0OWRiYjJkNjBjYTljODk0MDI1NDM1OWViIn0.10Ig1Gc_8WjzqzdtMfWsGA';
-			var map = new L.mapbox.map('map', 'mapbox.high-contrast').setView([40,-97], 3);
-		 
-		 	var myLayer = L.mapbox.featureLayer().addTo(map);
-			
-			if (navigator.geolocation) {
-   	    		 navigator.geolocation.getCurrentPosition(showPosition);
-   	 		 	} else {
-    	  		  x.innerHTML = "Geolocation is not supported by this browser.";
-   			 	}
-   			 	
-   			 function showPosition(position){
- 				xLat = position.coords.latitude;
- 				yLong = position.coords.longitude;
- 			 
- 			   	
-  				//Pan and Zoom
-  				map.setZoom(15);	
-  				map.panTo(new L.LatLng(xLat,yLong));
-  				L.marker([xLat,yLong]).addTo(map)
-  					.bindPopup(xLat.toString());
-  			 }
-				
-			var x = document.getElementById("gnss");
-			function storeLocation(){
-			//Local Storage add X & Y to the name and store
- 			 	var XdataToStore = JSON.stringify(xLat);
- 			 	var YdataToStore = JSON.stringify(yLong);
- 			 	var localNameData = JSON.parse(localStorage.getItem('nameData'));
- 			 	
-  			 	var dataToStore = localNameData+", "+XdataToStore+", "+YdataToStore+"\n";
-  			 	
-  			 	//test oneFile for previous data, add new data to
-				if (localStorage.getItem('oneFile')===null){
-  			 		localStorage.setItem('oneFile', dataToStore);
-  				}else{
-  					var keepData = localStorage.getItem('oneFile');
-  					localStorage.setItem('oneFile',keepData+dataToStore);
-  				}
-  				document.getElementById("storeData").disabled = true;
-  				}
- 			 
-		</script>
-		
-		
-		
+					<a id="control" class="secondThree" href="start.html">Locate Another Photo</a>
+					<a id="control0" class="thirdThree" href="ExportCSV.html">Export Final CSV</a>
+				<div class="custom-popup" id="map">	</div>	
+			<script src="gnssLocate.js"></script>
+			</div>
 			<footer>
 				<div class="wrap">
 				<p><a id="HOME" href="index.html">History Locator</a></p>
 				<p id="copy">&copy; Copyright Amy Sorensen</p>
-				<!--<p><a id="aboutApp" href="about.html">About</a></p>-->
 				</div>
 			</footer>
 			

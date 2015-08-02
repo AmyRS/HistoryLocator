@@ -36,7 +36,7 @@ function picChange(evt){
 	
 	photo.onload=function(){
 	//draw photo into canvas when ready
-	ctx.drawImage(photo, 0, 0, 200, 200);
+	ctx.drawImage(photo, 0, 0, 300, 300);
 	};
 	//load photo into canvas
 	photo.src=picURL;
@@ -63,5 +63,5 @@ function picChange(evt){
      			localStorage.setItem('title', titleName);
    				}
    					 
-   		document.getElementById('list').innerHTML = output.join('');
+   		//document.getElementById('list').innerHTML = output.join('');
   		}

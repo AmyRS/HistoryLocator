@@ -2,57 +2,31 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<link rel="stylesheet" type="text/css" href="mobile.css" />
-		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
-		Remove this if you use the .htaccess -->
+		<link rel="stylesheet" type="text/css" href="responsive.css" />
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame Remove this if you use the .htaccess -->
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="description" content="This app allows you to create CSV file for import into HistoryPin.org Website">
 		<meta name="author" content="Amy Sorensen">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico">
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-		
-		<title>Start</title>
+		<title>History Locator</title>
 	</head>
 
 	<body>
 		<script src="importPhotos.js"></script>
 		<div>
-			<header>
-				<!--<h1>Select Photo to Locate</h1>-->
-			</header>
-			
-				<p>
-				Browse to photo from your device to locate:
-				</p>
-				
+			<header><h4>Browse to photo from your device to locate:</h4></header>
 				<p>
 					<input type="file" id="files" name="files[]" onchange="picChange(event)"/>
 				</p>
-				
-				<output id="list">
-				</output>
-				
 				<script type="text/javascript">
  					document.getElementById('files').addEventListener('change', handleFileSelect, false);		
 				</script>
-				
-				<p>
-					<canvas id="capturedPhoto" height="200">
-					</canvas>
-				</p>
-				
-				<p>
-				<a href="mapLocate.html">Select Location Using Map</a>
-				</p>
-			
-				<p>
-				<a href="gnssLocate.html">Use Current Position</a>
-				</p>
-				
-			
+				<p><canvas id="capturedPhoto" height="300px"> </canvas></p>
+				<p><a href="mapLocate.html">Select Location Using Map</a></p>
+				<p><a href="gnssLocate.html">Use Current Position</a></p>
 			<footer>
 				<div class="wrap">
 				<p><a id="HOME" href="index.html">History Locator</a></p>
@@ -60,7 +34,6 @@
 				<!--<p><a id="aboutApp" href="about.html">About</a></p>-->
 				</div>
 			</footer>
-			
 		</div>
 	</body>
 </html>
