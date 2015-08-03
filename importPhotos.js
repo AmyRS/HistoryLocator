@@ -36,7 +36,7 @@ function picChange(evt){
 	
 	photo.onload=function(){
 	//draw photo into canvas when ready
-	ctx.drawImage(photo, 0, 0, 300, 300);
+	ctx.drawImage(photo, 0, 0, 200, 200);
 	};
 	//load photo into canvas
 	photo.src=picURL;
