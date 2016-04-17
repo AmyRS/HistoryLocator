@@ -62,21 +62,21 @@
 			//var headerData = headerData + '\n';
 	
   			var g = localStorage.getItem('title');
-
   			var n = localStorage.getItem('fileName');
-  						
-			var dataToStore = n + "," + g +",,,," + '"' + XdataToStore  +","+YdataToStore + '"'+ "\n";
+  			var dataToStore = n + "," + g +",,,," + '"' + XdataToStore  +","+YdataToStore + '"'+ "\n";
 			//var dataToStore = dataToStore + '\n';
 		
 			//test oneFile for previous data, add new data to
 			if (localStorage.getItem('oneFile')===null){
   				localStorage.setItem('oneFile', dataToStore);
   				}
-  				else{
+  			else{
   				var keepData = localStorage.getItem('oneFile');
   				localStorage.setItem('oneFile',keepData + dataToStore);
-  				}	
-  				document.getElementById("storeData").disabled = true;
+  				}
+			$("#storeData").addClass("disabled");
+				
   				};	
-	
+		
+		
 	

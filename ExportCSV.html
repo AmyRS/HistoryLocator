@@ -2,22 +2,49 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<link rel="stylesheet" type="text/css" href="responsive.css" />
-		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame Remove this if you use the .htaccess -->
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
 		<meta name="description" content="This app allows you to create CSV file for import into HistoryPin.org Website">
 		<meta name="author" content="Amy Sorensen">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+		
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>	
+		
+		<!-- Latest compiled and minified Bootstrap CSS -->
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" rel="stylesheet" crossorigin="anonymous">
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+		
+		
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame Remove this if you use the .htaccess -->
+		
+	
+		  
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico">
-		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png">	  			 
+		<link href="sticky-footer.css" rel="stylesheet" type="text/css">
+	
+		<link href="responsive.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" /><!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame Remove this if you use the .htaccess -->
+		<link href="leaflet-search.css" rel="stylesheet" type="text/css" />
+		<link href="leaflet-search.mobile.css" rel="stylesheet" type="text/css" />
+		
+		<script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
+		<link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.css' rel='stylesheet'/>
+		
 		<title>History Locator</title>
 	</head>
 
 	<body onload="exportData()">
 		<script>		
     		function exportData() {
-
         	var ary = window.localStorage.getItem( "oneFile" ); //csv as a string
         	var blob = new Blob([ary], {type: "text/csv"});
         	var url = URL.createObjectURL(blob);
@@ -27,18 +54,39 @@
         }
         	 
         </script>
-		<div>
-			<header>
-			</header>
-			 <!--<button onclick="exportData()">Generate CSV</button><br> -->
-   			 <p><h1><a  id="results">Download CSV</a></h1></p>
-   
-			<footer>
-				<div class="wrap">
-				<p><a id="HOME" href="index.html">History Locator</a></p>
-				<p id="copy">&copy; Copyright Amy Sorensen</p>
+		
+		<!--Fixed navbar-->
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand">History Locator</a>
+				</div>
+				<div id="navbar" class="collapse navbar-collapse">
+				 <ul class="nav navbar-nav">
+				  <li class="active">
+					<a id="HOME" href="index.html">Home</a>
+ 				  </li>
+				  <li>
+					<a id="aboutApp" href="about.html">About</a>
+				  </li>
+				</ul>			
+			</div>
+		</nav>
+		
+		<div class="container">
+		::before
+			
+			<div class="page-header">
+   			 <a class="btn btn-sample btn-lg" id="results">Download CSV</a>
+			</div>
+		</div>
+			<footer class="footer">
+				<p></p>
+				<div class="container">
+  				<div class="col-md-4">
+				<p class="text-muted" id="copy">&copy; Copyright Amy Sorensen</p>
+				</div>
 				</div>
 			</footer>
-		</div>
 	</body>
 </html>
