@@ -1,16 +1,21 @@
 /**
  * @author Amy
- */
-
+ */		
+			
 			L.mapbox.accessToken = 'pk.eyJ1IjoiYXJzZ2lzIiwiYSI6IjdmMThhNjU0OWRiYjJkNjBjYTljODk0MDI1NDM1OWViIn0.10Ig1Gc_8WjzqzdtMfWsGA';
-			var map = new L.mapbox.map('map', 'mapbox.high-contrast').setView([40,-97], 3);
-		 
-		 	var myLayer = L.mapbox.featureLayer().addTo(map);
+			var map;
+			if (map === undefined){
+							map = new L.mapbox.map('map', 'mapbox.high-contrast').setView([40,-97], 3);
+									} 
+			if (myLayer === undefined){
+							var myLayer = L.mapbox.featureLayer().addTo(map);
+									}
+		 	
 			
 			if (navigator.geolocation) {
    	    		 navigator.geolocation.getCurrentPosition(showPosition);
    	 		 	} else {
-    	  		  alert("Geolocation is not supported by this browser.");
+    	  		  alert("Geolocation is not enabled by this browser.");
    			 	}
    			 	
    			 function showPosition(position){

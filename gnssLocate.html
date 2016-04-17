@@ -4,7 +4,6 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		
 		<meta name="description" content="This app allows you to create CSV file for import into HistoryPin.org Website">
 		<meta name="author" content="Amy Sorensen">
 		
@@ -19,11 +18,12 @@
 		<!-- Optional theme -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 		
-		
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame Remove this if you use the .htaccess -->
-		  			 
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>		
+		
 		<link href="sticky-footer.css" rel="stylesheet" type="text/css">
 	
 		<link href="responsive.css" rel="stylesheet" type="text/css" />
@@ -32,15 +32,10 @@
 		<link href="leaflet-search.css" rel="stylesheet" type="text/css" />
 		<link href="leaflet-search.mobile.css" rel="stylesheet" type="text/css" />
 		
-		<script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
-		<link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.css' rel='stylesheet'/>
-		
 		<title>History Locator</title>
 	</head>
 
-	<body>   
-		
-		
+	<body>   	
 		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="container">
 				<div class="navbar-header">
@@ -70,16 +65,14 @@
 		<div class="container">  
 			<div class="span12">	
 			
-			<button class="btn-sample btn-lg" role="button" id="storeData" onclick="storeLocation()">Set Location</button>
+			<a class="btn btn-sample btn-lg" role="button" id="storeData" onclick="storeLocation()">Set Location</a>
 			
-			<button class="btn-sample btn-lg" role="button" id="control" href="start.html">Locate Another Photo</button>
+			<a class="btn btn-sample btn-lg" role="button" href="start.html" id="control">Locate Another Photo</a>
 			
-			<button id="control0" class="btn-sample btn-lg" href="ExportCSV.html">Export Final CSV</button>
-			
+			<a class="btn btn-sample btn-lg" role="button" href="ExportCSV.html" id="control0">Export Final CSV</a>
 			
 			</div>
 		</div>
-	
 		
 		<footer class="footer">	
 			<p></p>
@@ -93,7 +86,6 @@
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?v=3&amp;sensor=false"></script>
 		<script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
-		
 		
 		<script src="leaflet-search.js"></script>
 		<script src="mapLocate.js"> </script>
